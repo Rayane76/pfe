@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function GeneralInfos() {
+export default function GeneralInfos({patient}) {
   const handleFlip = (e) => {
     e.preventDefault();
     var cards = document.querySelectorAll(".card");
@@ -38,36 +38,39 @@ export default function GeneralInfos() {
                   <h4 className="nameInfos">
                     <span className="fw-bold me-2">
                       Nom Complet: 
-                    </span>
-                     Rayane Hiouani <br></br>
+                    </span> {patient.first_name} {patient.last_name}
+                    <br></br>
                     <span className="fw-bold me-2">
                       Naissance:
-                    </span>
-                    14/08/2003 <br></br>
+                    </span>{patient.birth_date}
+                    <br></br>
                     <span className="fw-bold me-2">
                       Sexe:
                     </span>
-                    Male <br></br>
+                    {patient.gender} <br></br>
                     <span className="fw-bold me-2">
                       Adresse:
                     </span>
-                    Aadl Belle Vue Ain Benian Algiers <br></br>
+                    {patient.address} <br></br>
                     <span className="fw-bold me-2">
                       Groupe sanguin:
                     </span>
-                     O+ <br></br>
+                     {patient.blood_type} <br></br>
                      <span className="fw-bold me-2">
                       Contact d'urgence :
                     </span>
-                     0793637763 <br></br>
+                     {patient.emergency_number} <br></br>
                      <span className="fw-bold me-2">
                      Situation: 
                      </span>
-                     Marrié <br></br>
-                     <span className="fw-bold me-2">
-                      Nombre d'enfants:
-                     </span>
-                      2 <br></br>
+                     {patient.married ? "married" : "non"} <br></br>
+                      { patient.married && (
+                                    <span className="fw-bold me-2">
+                                    Nombre d'enfants: 2 <br></br>
+                                        </span>
+                                            )}
+
+                     
                   </h4>
                 </div>
                 <div className="more" onClick={(e) => handleFlip(e)}>

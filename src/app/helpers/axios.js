@@ -2,7 +2,7 @@ import axios from "axios";
 import createAuthRefreshInterceptor from "axios-auth-refresh";
 
 const axiosService = axios.create({
-    baseURL : "https://ai2dz.com/CodeItBack/api/",
+    baseURL : "http://127.0.0.1:8000/api/",
     headers : {
         "Content-Type":"application/json",
     }
@@ -26,7 +26,7 @@ const refreshAuthLogic = async(failedRequest) =>{
     
     const {refresh,user_id} = data 
     return axios.post("/token/refresh/",data,{
-        baseURL : `https://ai2dz.com/CodeItBack/api/`,
+        baseURL : `http://127.0.0.1:8000/api/`,
         headers :{
             Authorization : `Bearer ${refresh}`
         }

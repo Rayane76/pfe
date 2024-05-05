@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import ModalAddAnalyse from "./ModalAddAnalyse";
 
-export default function Analyses() {
+export default function Analyses({patient_id}) {
   const analyses = [
     {
       nom: "Analyse1",
@@ -111,7 +111,7 @@ export default function Analyses() {
           <span>Nouveau</span>
         </button>
         </div>
-        <ModalAddAnalyse showModalAdd={showModalAdd} setShowModalAdd={setShowModalAdd} />
+        <ModalAddAnalyse showModalAdd={showModalAdd} setShowModalAdd={setShowModalAdd} patient_id={patient_id} />
         <div className="analysesFilterDiv">
           <Autocomplete
             disablePortal

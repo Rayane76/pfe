@@ -36,8 +36,20 @@ export default function ModalAddAnalyse({showModalAdd,setShowModalAdd}){
            formData.append("file",e.target.files[0]);
       }
 
-
-
+      const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        
+    
+        axiosService.post(`/add_document/${patient_id}`,/*lhna lzm formData */)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+      
     return(
         <Modal
         show={showModalAdd}
